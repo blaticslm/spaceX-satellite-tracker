@@ -71,7 +71,7 @@ class SatSettingForm extends Component {
         );
     }
 
-    showSatellite = e => {
+    showSatellite = (e) => {
         e.preventDefault();
         console.log("clicked")
 
