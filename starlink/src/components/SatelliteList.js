@@ -54,7 +54,7 @@ class SatelliteList extends Component {
 
     }
 
-    addOrRemove= (item,status,list) => {
+    addOrRemove= (item,check,list) => {
         //case 1: check to true
         //  - not in the list: add
         //  - in the list: do nothing
@@ -67,11 +67,11 @@ class SatelliteList extends Component {
         const found = list.some(sat => sat.satid === item.satid)
 
         //case 1: check to true but nothing find
-        if(status && !found) {
+        if(check && !found) {
             list = [...list, item]
         }
 
-        if(!status && found) {
+        if(!check && found) {
             list = list.filter(sat => sat.satid !== item.satid) //不相等的保留， 相等的删除
         }
 
@@ -82,6 +82,7 @@ class SatelliteList extends Component {
         this.props.onShowMap(this.state.selected); //props是子传父，传给main里面的 satellite实例
     }
 
+    //Update: if previous obtained satatellite info != current one, then we cancel create a new empty selected list
     componentDidUpdate(prevProps, prevState, snapshot) { //用于更新选中的表单，要不然会有残留（已经看到了刚才为什么会有东西了）
         if(prevProps.satInfo !== this.props.satInfo) {
             this.setState({selected: []})

@@ -73,6 +73,7 @@ class WorldMap extends Component {
                 const {satid} = sat;
 
                 //I cant get position data?why???????????????
+                //Request: /positions/{id}/{observer_lat}/{observer_lng}/{observer_alt}/{seconds}
                 const url = `/api/${SATELLITE_POSITION_URL}/${satid}/${latitude}/${longitude}/${altitude}/${endTime}/&apiKey=${SAT_API_KEY}`;
 
                 return axios.get(url);
@@ -84,12 +85,14 @@ class WorldMap extends Component {
                 .then(res => {
 
                     //遍历array并直接画图
+                    console.log(res)
                     const arr = res.map(sat => sat.data) //该处用一个sat名字来代替在data里面的各个卫星的json数据
                     this.setState({isLoading:false, isDrawing:true})
 
                     if(!prevState.isDrawing) { //判断是否可以画图
                         this.track(arr)
                     } else {
+                        console.log(document.getElementsByClassName("hint")); //html collection
                         const onHint = document.getElementsByClassName("hint")[0];
                         onHint.innerHTML = "Please wait for these current satellites to finish drawing! "
                     }
@@ -102,7 +105,7 @@ class WorldMap extends Component {
         }
     }
 
-    track = data => {
+    track = (data) => {
         //先查看有没有position这个数据
         //console.log(data)
         if (!data[0].hasOwnProperty("positions")) {
