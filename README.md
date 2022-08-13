@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=qLr9ltalSgs
 
 This web application successfully demonstrates the following aspect:
 - Obtaining the List of StarLink satellites from the given geological location input
-- Tracking and predicting the positions of the selected satellites in the given duration input
+- Tracking and drawing the positions of the selected satellites in the given duration input on the map
 
 ## App structure
 <p align="center">
