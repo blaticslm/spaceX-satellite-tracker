@@ -15,3 +15,7 @@ This web application successfully demonstrates the following aspect:
 - Tracking and predicting the positions of the selected satellites in the given duration input
 
 ## App structure
+<p align="center">
+<img src="https://github.com/blaticslm/spaceX-satellite-tracker/blob/main/screenshot/spaceX%20structure.png">
+</p>
+
