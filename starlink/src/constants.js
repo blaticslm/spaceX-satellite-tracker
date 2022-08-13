@@ -1,3 +1,5 @@
+//https://www.n2yo.com/api/ is in package.json
+
 export const SAT_API_KEY = 'PAKV3M-X8SM38-3CGZHJ-4T27';
 
 export const STARLINK_CATEGORY = "52";

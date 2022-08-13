@@ -176,7 +176,7 @@ class WorldMap extends Component {
         context2.fillText(nameWithNumber, xy[0], xy[1] + 14); //向上偏移14px
     }
 
-    componentDidMount() { //获取数据时用这个
+    componentDidMount() { //获取地图，only one time achieve is good enough
         axios.get(WORLD_MAP_URL)
             .then(res => {
                 //console.log(res)

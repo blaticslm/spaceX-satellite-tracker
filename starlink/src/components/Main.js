@@ -38,14 +38,14 @@ class Main extends Component {
     //SatelliteList: onClick = {this.onShowSatMap} ---> onShowSatMap{this.props.onShowMap(this.state.selected)}
     //也就是说，父告诉子要更新，子在点击更新之后把数据回传给父的onShowMap
 
-    showNearbySatellite = setting => {
+    showNearbySatellite = (setting) => {
         console.log(setting)
         this.setState({settings:setting});
         //fetch sat list from the server
         this.fetchSatellite(setting)
     }
 
-    fetchSatellite = setting => {
+    fetchSatellite = (setting) => {
         //step 1: get the settings
         //step 2: fetch satellite list from the server
         //  case 1: successful ---> update satInfo
@@ -58,7 +58,7 @@ class Main extends Component {
             isLoadingList: true,
         })
         axios.get(url)
-            .then(response => {
+            .then(response => { //return is a list
                // console.log("Main:fetchSatellite")
                 //console.log(response)
                 this.setState({satInfo: response.data, isLoadingList: false}) //传给info，并且loading结束了之后就false
@@ -72,7 +72,7 @@ class Main extends Component {
 
     }
 
-    showMap = selected => {
+    showMap = (selected) => {
         console.log(selected)
         //spaceX4开始
         this.setState(preState => ({
@@ -80,7 +80,6 @@ class Main extends Component {
             //isLoadingMap: true,
             satList: [...selected] //修改satList属性。 ...selected是浅copy
         }))
-
     }
 }
 
