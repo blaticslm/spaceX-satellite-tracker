@@ -16,7 +16,7 @@
     "d3-time-format": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.1",
     "topojson-client": "^3.1.0",
     "web-vitals": "^1.1.2"
   },
